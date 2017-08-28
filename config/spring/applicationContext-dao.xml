@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+
+
+	<!-- 数据库 连接池 dataSource注入 -->
+	<context:property-placeholder location="classpath:da.properties" />
+	<bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${a.driverClass}"></property>
+		<property name="jdbcUrl" value="${a.jdbcUrl}"></property>
+		<property name="user" value="${a.user}"></property>
+		<property name="password" value="${a.password}"></property>
+	</bean>
+	
+	<!-- 配置factory 依赖于连接池和mybatis核心配置文件 sqlSessionFactoryBean整合包的 -->
+	<bean name="factory" class="org.mybatis.spring.SqlSessionFactoryBean"
+		p:dataSource-ref="dataSource">
+		<property name="configLocation" value="classpath:mabatis/sqlMapConfig.xml"></property>
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
+		p:basePackage="com.zhiyou100.video.web.mapper"></bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
