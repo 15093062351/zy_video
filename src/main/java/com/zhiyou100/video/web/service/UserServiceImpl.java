@@ -29,12 +29,11 @@ public class UserServiceImpl implements UserService {
 	public List<User> fandUser(User u) {
         
 		String str= DigestUtils.md5DigestAsHex(u.getPassword().getBytes());
-		
-		
 		UserExample ue = new UserExample();
 		ue.createCriteria().andEmailEqualTo(u.getEmail()).andPasswordEqualTo(str);
 		List<User> list = um.selectByExample(ue);
 		return list;
+		
 	}
 
 

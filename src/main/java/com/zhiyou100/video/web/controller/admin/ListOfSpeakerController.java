@@ -42,7 +42,7 @@ public class ListOfSpeakerController {
 		Page<Speaker> pages = ss.adminSpeakerPage(sv);
 		
     	md.addAttribute("page", pages);
-		return "/listOfSpeaker/speakerList";
+		return "/admin/listOfSpeaker/speakerList";
 	}
     
     @RequestMapping(value="/addSpeaker.action",method=RequestMethod.GET)
@@ -51,7 +51,7 @@ public class ListOfSpeakerController {
     	
     	
     	
-		return "/listOfSpeaker/addSpeaker";
+		return "/admin/listOfSpeaker/addSpeaker";
     	
     }
     @RequestMapping(value="/addSpeaker.action",method=RequestMethod.POST)
@@ -74,7 +74,7 @@ public class ListOfSpeakerController {
     	      Speaker s  = ss.fandSpeakerBy(id);
     	      md.addAttribute("s", s);
     	      
-		return "/listOfSpeaker/editSpeaker";
+		return "/admin/listOfSpeaker/editSpeaker";
     }
     @RequestMapping(value="/editSpeaker.action",method=RequestMethod.POST)
     public String editSpeakerbaocun(Speaker speaker){

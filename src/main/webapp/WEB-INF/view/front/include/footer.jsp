@@ -45,8 +45,8 @@
 		
 			<form id="loginForm" action="${pageContext.request.contextPath}/front/user/login.action" method="post">
 				<h3>快速登录</h3>
-				<input type="email" id="loginEmail" placeholder="请输入邮箱" name="email">
-				<input type="password" id="loginPassword" placeholder="请输入密码" name="password">
+				<input type="email" id="loginEmail" placeholder="请输入邮箱" name="email" value="2846440498@qq.com">
+				<input type="password" id="loginPassword" placeholder="请输入密码" name="password" value="520">
 				<div id="forget">
 					<a href="${pageContext.request.contextPath}/front/user/forgetpwd.action">忘记密码？</a>
 				</div>

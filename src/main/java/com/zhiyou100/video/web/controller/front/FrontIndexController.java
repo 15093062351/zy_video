@@ -35,12 +35,7 @@ public class FrontIndexController {
 		return "/front/index";
 		
 	}
-	/*@RequestMapping("/user/logout.action")
-	public String logout(){
-		
-		
-		return "redirect:/front/user/index.action";
-	}*/
+	
 	
 	@ResponseBody
 	@RequestMapping(value="/user/login.action",method=RequestMethod.POST)
@@ -57,6 +52,7 @@ public class FrontIndexController {
 			session.setAttribute("uid", user.getId());
 			
 			session.setAttribute("user", user);
+			
 			return str;
 		}
 	}
@@ -248,8 +244,9 @@ public class FrontIndexController {
 	}
 	
 	@RequestMapping("/user/logout.action")
-	public String logout(){
+	public String logout(HttpSession session){
 		
+		session.invalidate();
 		
 		return "redirect:/front/index.action";
 	}

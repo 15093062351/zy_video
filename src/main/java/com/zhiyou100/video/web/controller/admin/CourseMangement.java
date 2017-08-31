@@ -27,6 +27,6 @@ public class CourseMangement {
 	 System.out.println(c);
 		md.addAttribute("c", c);
 		
-		return "/courseMangement/courseList";
+		return "/admin/courseMangement/courseList";
 	}
 }

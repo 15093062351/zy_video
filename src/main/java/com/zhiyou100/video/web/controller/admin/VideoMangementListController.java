@@ -66,7 +66,7 @@ public class VideoMangementListController {
 		
 		List<Course> course = cs.fandallCourse();
 		md.addAttribute("course", course);
-		return "/videoMangement/videoMangementList";
+		return "/admin/videoMangement/videoMangementList";
 		
 	}
 	
@@ -83,7 +83,7 @@ public class VideoMangementListController {
 		md.addAttribute("course", course);
 		
 		
-		return "/videoMangement/addvideo";
+		return "/admin/videoMangement/addvideo";
 	}
 	
 @RequestMapping(value="/addVideo.action",method=RequestMethod.POST)
@@ -114,7 +114,7 @@ public String editVideo(Model md,Integer id){
 	     Video vd  =  vs.fandVideoBy(id);
 	     md.addAttribute("vd", vd);
 	     
-	return "/videoMangement/editVideo";
+	return "/admin/videoMangement/editVideo";
 }
 
 @RequestMapping(value="/editVideo.action",method=RequestMethod.POST)

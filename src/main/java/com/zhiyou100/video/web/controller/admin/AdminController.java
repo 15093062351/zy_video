@@ -20,7 +20,7 @@ public class AdminController {
 	public String admin(){
 		
 		
-		return "/admin";
+		return "/admin/admin";
 	}
 @RequestMapping(value="/admin.action",method=RequestMethod.POST)	
 public String Admin(String loginName, String loginPwd,HttpSession session){

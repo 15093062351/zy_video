@@ -72,7 +72,7 @@
                                 <div class="form_submit dd">
                                     <input type="hidden" name="id" value="${user.id}">
                                     <input type="submit"  value="保&#x3000;存">
-                                    <a href="front/user/profile.do">重置</a>
+                                    <a href="profile.action">重置</a>
                                 </div>
                             </form>
                         </div>
