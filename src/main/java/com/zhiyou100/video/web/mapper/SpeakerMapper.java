@@ -33,4 +33,15 @@ public interface SpeakerMapper {
 	List<Speaker> fandAllSpeaker(SpeakerVo sv);
 
 	int fandAllSpeakerCount(SpeakerVo sv);
+	
+	
+	
+	
+	
+	
+
+	Speaker fandspeakerBy(Integer speakerId);
+	
+	
+	
 }

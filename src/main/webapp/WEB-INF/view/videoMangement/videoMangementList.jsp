@@ -17,8 +17,13 @@
 <script src="${pageContext.request.contextPath}/js/jquery-1.12.4.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/JQuery/jquery-1.12.4.min.js"></script>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/JQuery/jquery-1.12.4.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+
 
 <script type="text/javascript">
 
@@ -68,22 +73,79 @@
 	});
 	
 
-	function deleteVideo(){
+	function deleteVideo(id){
+	
 		
-		
-		/* 
-		$.alert({
-		    title: '警告',
-		    content: '简单警告',
-		}); */
-		
-		if(!confirm("亲爱的,忍心抛下我吗？")){ 
+if(!confirm("亲爱的,忍心抛下我吗？")){ 
 			
 			window.event.returnValue = false; 
 			
 		} 
+		
+		
+	}
+	
+	
+	
+	/* $.alert({
+	    title: '提示',
+	    content: 'Simple alert!',
+	});
+	 */
+	
+		 /* if(!confirm("亲爱的,忍心抛下我吗？")){ 
+			
+			window.event.returnValue = false; 
+			
+		}   */
+	
+	
+	
 	
 	function deleteAll(){
+			 $.confirm({
+				    title: '提示',
+				    content: '是否确认',
+				    buttons: {
+				        confirm: {
+				        	text:'非常肯定',
+				        	action : function(){
+				        		
+				        		 $("form[name='delete']")[0].submit();
+				        	}
+				        	
+				        },
+				        取消: function () {
+				          
+				        }
+				        
+				        
+				    }
+				});
+
+			
+		        
+	}        
+		/* $.confirm({
+		    title: '提示',
+		    content: '是否确认',
+		    buttons: {
+		        confirm: {
+		        	text:'非常肯定',
+		        	action : function(){
+		        		
+		        	}
+		        	
+		        },
+		        取消: function () {
+		          
+		        }
+		        
+		        
+		    }
+		}); */
+		
+	/* 	
 		if(!confirm("亲爱的,你确定要删除吗??")){
 			
 			window.event.returnValue = false;
@@ -93,8 +155,9 @@
 			 $("form[name='delete']")[0].submit();
 			 
 			 return true;
-		}
-	}
+		} 	
+		 */
+	
 	
 </script>
 
@@ -135,7 +198,7 @@ form {
 	<div style="margin-left: 150px;">
 		<a class="btn btn-primary"
 			href="${pageContext.request.contextPath}/admin/addVideo.action">添加视频</a>
-		<a ><button class="btn btn-primary"type="button" onclick="return deleteAll()">批量删除 <span class="badge"></span></button> </a>
+		<a  onclick=" deleteAll()"><button class="btn btn-primary"type="button">批量删除 <span class="badge"></span></button> </a>
 		<form id="searchForm"action="${pageContext.request.contextPath}/admin/adminPage.action">
 			<div style="margin-left: 300px;">
 				<input type="text" name="adminVideotitle" placeholder="视频标题">
@@ -181,16 +244,16 @@ form {
 							<td scope="row">${status.count +((page.page-1)*5)}</td>
 							<td>${video.videoTitle}</td>
 							<td>${video.videoDescr}</td>
-							<td>${video.speaker.speakerName}</td>
-							<td>${video.course.courseName}</td>
+							<td>${video.speakerName}</td>
+							<td>${video.courseName}</td>
 							<td>${video.videoLength}</td>
 							<td>${video.videoPlayTimes}</td>
 							<td><a href="<c:url value="/admin/editVideo.action?id="/>${video.id}">
 							<span class="glyphicon glyphicon-edit" aria-hidden="blue"> </span></a>
-							&nbsp; <a href="<c:url value="/admin/deleteVideo.action?id="/>${video.id}">
+							&nbsp; <a onclick="deleteVideo(this)" href="<c:url value="/admin/deleteVideo.action?id="/>${video.id}">
 							
 							
-							<span  onclick="deleteVideo()" class="glyphicon glyphicon-trash" aria-hidden="blue"></span></a>
+							<span   class="glyphicon glyphicon-trash" aria-hidden="blue"></span></a>
 						</tr>
 					</c:forEach>
 					

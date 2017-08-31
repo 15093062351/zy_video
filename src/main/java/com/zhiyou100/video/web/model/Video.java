@@ -25,20 +25,13 @@ public class Video {
 
     private Integer videoPlayTimes;
     
-    private Speaker speaker;
+ 
     
-    private Course course;
     
-    public String getCourseName() {
-		return courseName;
-	}
+    private String speakerName;
+    
+    private String courseName;
 
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
-	}
-
-	private String courseName;
-    
 	public Integer getId() {
 		return id;
 	}
@@ -127,20 +120,20 @@ public class Video {
 		this.videoPlayTimes = videoPlayTimes;
 	}
 
-	public Speaker getSpeaker() {
-		return speaker;
+	public String getSpeakerName() {
+		return speakerName;
 	}
 
-	public void setSpeaker(Speaker speaker) {
-		this.speaker = speaker;
+	public void setSpeakerName(String speakerName) {
+		this.speakerName = speakerName;
 	}
 
-	public Course getCourse() {
-		return course;
+	public String getCourseName() {
+		return courseName;
 	}
 
-	public void setCourse(Course course) {
-		this.course = course;
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
 	}
 
 	@Override
@@ -148,10 +141,12 @@ public class Video {
 		return "Video [id=" + id + ", videoTitle=" + videoTitle + ", speakerId=" + speakerId + ", courseId=" + courseId
 				+ ", videoLength=" + videoLength + ", videoImageUrl=" + videoImageUrl + ", videoUrl=" + videoUrl
 				+ ", videoDescr=" + videoDescr + ", insertTime=" + insertTime + ", updateTime=" + updateTime
-				+ ", videoPlayTimes=" + videoPlayTimes + ", speaker=" + speaker + ", course=" + course + ", courseName="
-				+ courseName + "]";
+				+ ", videoPlayTimes=" + videoPlayTimes + ", speakerName=" + speakerName + ", courseName=" + courseName
+				+ "]";
 	}
-
+    
+ 
+	
 	
   
 }

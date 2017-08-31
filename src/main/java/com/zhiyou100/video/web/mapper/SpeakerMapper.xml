@@ -278,4 +278,24 @@
   </select>
   
   
+  
+  
+  
+  
+  
+  <select id="fandspeakerBy" resultMap="BaseResultMap" parameterType="Integer">
+  
+  select * from speaker where id = #{speakerId}
+  </select>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </mapper>

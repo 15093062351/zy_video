@@ -236,18 +236,61 @@
   
   
   <select id="fandCourse" resultMap="BaseResultMap">
-  
   select c.* , s.subject_name from course c , subject s where s.id = c.subject_id ;
-  
   </select>
   
   
   
   
+<resultMap type="course" id="BaseResultMap1">
+
+<id column="id" property="id"/>
+<result column="course_name" property="courseName"/>
+<result column="course_descr" property="courseDescr"/>
+<collection property="video" ofType="video">
+
+<id column="vid" property="id"/>
+<result column="video_title" property="videoTitle"/>
+<result column="video_length" property="videoLength"/>
+<result column="video_image_url" property="videoImageUrl"/>
+<result column="video_play_times" property="videoPlayTimes"/>
+</collection>
+</resultMap> 
   
   
   
   
   
+  
+  
+ <select id="fandallcourse" resultMap="BaseResultMap1">
+ select c.*,v.*,v.id vid from course c left join video v on v.course_id = c.id having subject_id = 1
+ </select> 
+  
+  
+  
+  
+  
+  
+  
+  
+ <select id="fandcoursebyid" resultMap="BaseResultMap" parameterType="Integer">
+select * from course where id = #{courseId}
+ </select>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
   
 </mapper>

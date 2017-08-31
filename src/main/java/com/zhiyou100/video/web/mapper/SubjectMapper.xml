@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.zhiyou100.video.web.mapper.SubjectMapper" >
+
   <resultMap id="BaseResultMap" type="com.zhiyou100.video.web.model.Subject" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="subject_name" property="subjectName" jdbcType="VARCHAR" />
@@ -161,4 +162,26 @@
     set subject_name = #{subjectName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+<select id="fandallsubject" resultMap="BaseResultMap">
+  select * from subject
+</select>
+  
+  
+  
+  
+  
 </mapper>
