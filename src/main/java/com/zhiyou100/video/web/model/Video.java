@@ -25,20 +25,64 @@ public class Video {
 
     private Integer videoPlayTimes;
     
-    private Speaker speaker;
+    private String speakerName;
     
-    private Course course;
+    private String courseName;
     
-    public String getCourseName() {
-		return courseName;
+    private String videoLengthstr;
+    
+    
+
+   public String getVideoLengthstr() {
+	   
+	   int hh = videoLength/3600;
+	   int mm = videoLength%3600/60;
+	   int ss = videoLength%60;
+	   
+	   String h = ""+hh;
+	   String m = ""+mm;
+	   String s = ""+ss;
+	   if(hh<10){
+		   h="0"+hh;
+	   }
+	   if(mm<10){
+		   m="0"+mm;
+	   }
+	   if(ss<10){
+		   s="0"+ss;
+	   }
+	   
+	   this.videoLengthstr= h+":"+m+":"+s;
+	   
+	   
+	   
+		return videoLengthstr;
 	}
 
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
-	}
-
-	private String courseName;
+	/* private String videoLengthStr;
     
+	public String getVideoLengthStr() {
+		
+		
+		int hh = this.videoLength/3600;
+		int mm = this.videoLength%3600/60;
+		int ss = this.videoLength%60;
+		String h=""+hh;
+		String m=""+mm;
+		String s=""+ss;
+		if(hh<10){
+			h="0"+hh;
+		}
+		if(mm<10){
+			m="0"+mm;
+		}
+		if(ss<10){
+			s="0"+ss;
+		}
+		this.videoLengthStr = h+":"+m+":"+s;
+		return videoLengthStr;
+	}
+*/
 	public Integer getId() {
 		return id;
 	}
@@ -127,20 +171,20 @@ public class Video {
 		this.videoPlayTimes = videoPlayTimes;
 	}
 
-	public Speaker getSpeaker() {
-		return speaker;
+	public String getSpeakerName() {
+		return speakerName;
 	}
 
-	public void setSpeaker(Speaker speaker) {
-		this.speaker = speaker;
+	public void setSpeakerName(String speakerName) {
+		this.speakerName = speakerName;
 	}
 
-	public Course getCourse() {
-		return course;
+	public String getCourseName() {
+		return courseName;
 	}
 
-	public void setCourse(Course course) {
-		this.course = course;
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
 	}
 
 	@Override
@@ -148,10 +192,12 @@ public class Video {
 		return "Video [id=" + id + ", videoTitle=" + videoTitle + ", speakerId=" + speakerId + ", courseId=" + courseId
 				+ ", videoLength=" + videoLength + ", videoImageUrl=" + videoImageUrl + ", videoUrl=" + videoUrl
 				+ ", videoDescr=" + videoDescr + ", insertTime=" + insertTime + ", updateTime=" + updateTime
-				+ ", videoPlayTimes=" + videoPlayTimes + ", speaker=" + speaker + ", course=" + course + ", courseName="
-				+ courseName + "]";
+				+ ", videoPlayTimes=" + videoPlayTimes + ", speakerName=" + speakerName + ", courseName=" + courseName
+				+ "]";
 	}
-
+    
+ 
+	
 	
   
 }

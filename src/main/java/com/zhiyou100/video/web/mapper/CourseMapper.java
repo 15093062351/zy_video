@@ -2,6 +2,8 @@ package com.zhiyou100.video.web.mapper;
 
 import com.zhiyou100.video.web.model.Course;
 import com.zhiyou100.video.web.model.CourseExample;
+import com.zhiyou100.video.web.model.Video;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -29,4 +31,11 @@ public interface CourseMapper {
     int updateByPrimaryKey(Course record);
 
 	List<Course> fandCourse();
+
+	List<Course> fandallcourse();
+	
+
+	Course fandcoursebyid(Integer courseId);
+
+	
 }

@@ -13,16 +13,27 @@
 		<result column="video_descr" property="videoDescr" jdbcType="VARCHAR" />
 		<result column="insert_time" property="insertTime" jdbcType="TIMESTAMP" />
 		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+		
+		
+		
+		 <result column="speaker_name" property="speakerName" jdbcType="VARCHAR" />
+		<result column="course_name" property="courseName" jdbcType="VARCHAR" />
+		
 		<result column="video_play_times" property="videoPlayTimes"
+		
 			jdbcType="INTEGER" />
 
+<!-- 
 
-		<association property="speaker" javaType="Speaker">
-			<result column="speakerName" property="speakerName" />
+	   <association property="speaker" javaType="Speaker">
+			<result column="speaker_name" property="speakerName" />
 		</association>
 		<association property="course" javaType="Course">
-			<result column="courseName" property="courseName" />
-		</association>
+			<result column="course_name" property="courseName" />
+		</association> 
+
+
+ -->
 
 
 	</resultMap>
@@ -358,7 +369,9 @@
 
 
 	<select id="fandallVideoCount" resultType="Integer" parameterType="com.zhiyou100.video.web.model.VideoVo">
-		select count(*)
+	
+	
+	 select count(*)
 		from video v
 		left join speaker s on v.speaker_id = s.id
 		left join course c on v.course_id = c.id
@@ -372,14 +385,15 @@
 			<if test="adminSearchCourse != null and adminSearchCourse !=''">
 				and course_id = #{adminSearchCourse}
 			</if>
-		</where>
+		</where> 
 
 	</select>
 
 
 	<select id="fandallVideo" resultMap="BaseResultMap"
 		parameterType="com.zhiyou100.video.web.model.VideoVo">
-		select v.*,s.speaker_name speakerName,c.course_name courseName
+		
+	select v.*,s.speaker_name ,c.course_name 
 		from
 		video v
 		left join speaker s on v.speaker_id = s.id
@@ -397,13 +411,13 @@
 			</if>
 			
 		</where>
-		limit #{begin},5
+		limit #{begin},5 
 	</select>
 
 
 
 
-<select id="findAvgCourse" resultMap="BaseResultMap">
+<select id="findAvgCount" resultMap="BaseResultMap">
   select course_id,avg(video_play_times) as video_play_times,
   c.course_name courseName from video v left join course c on 
   v.course_id = c.id group by course_id;
@@ -411,6 +425,22 @@
 
 
 
+
+<select id="fandVideoBy" resultMap="BaseResultMap" parameterType="Integer">
+select * from video  where id = #{videoId}
+
+</select>
+
+
+
+
+
+
+<select id="fandallVideoBy" resultMap="BaseResultMap" parameterType="Integer">
+
+select * from video where course_id = #{courseId}
+
+</select>
 
 
 

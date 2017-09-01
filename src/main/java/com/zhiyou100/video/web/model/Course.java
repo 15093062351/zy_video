@@ -1,6 +1,7 @@
 package com.zhiyou100.video.web.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Course {
     private Integer id;
@@ -17,6 +18,17 @@ public class Course {
     
     private Subject subject;
     
+    private List<Video> video;
+    
+
+    
+	public List<Video> getVideo() {
+		return video;
+	}
+
+	public void setVideo(List<Video> video) {
+		this.video = video;
+	}
 
 	public Subject getSubject() {
 		return subject;
@@ -77,8 +89,11 @@ public class Course {
 	@Override
 	public String toString() {
 		return "Course [id=" + id + ", courseName=" + courseName + ", courseDescr=" + courseDescr + ", insertTime="
-				+ insertTime + ", updateTime=" + updateTime + ", subjectId=" + subjectId + ", subject=" + subject + "]";
+				+ insertTime + ", updateTime=" + updateTime + ", subjectId=" + subjectId + ", subject=" + subject
+				+ ", video=" + video + "]";
 	}
+
+	
 
 	
 

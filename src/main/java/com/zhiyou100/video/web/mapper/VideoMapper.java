@@ -36,7 +36,11 @@ public interface VideoMapper {
 
 	List<Video> findAvgCount();
 	
+	Video fandVideoBy(Integer videoId);
 	
+	
+
+	List<Video> fandallVideoBy(Integer courseId);
 	
 	
 	
