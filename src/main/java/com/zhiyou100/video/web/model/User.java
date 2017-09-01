@@ -4,7 +4,6 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.zhiyou100.video.web.utils.MD5Utils;
 
 public class User {
     private Integer id;

@@ -71,7 +71,7 @@ $(function(){
 			<img src="${pageContext.request.contextPath}/img/logo.png"
 				class="img-responsive " alt="Responsive image">
 		</div>
-		<form action="${pageContext.request.contextPath}/video/admin.action" method="post" id="checkForm">
+		<form action="${pageContext.request.contextPath}/admin/admin.action" method="post" id="checkForm">
 			<div class="form-group">
 				<input type="text"  name="loginName" value="admin"   class="form-control" placeholder="请输入用户名">
 			</div>

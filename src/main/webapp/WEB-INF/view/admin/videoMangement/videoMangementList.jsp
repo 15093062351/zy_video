@@ -185,7 +185,7 @@ form {
 					href="${pageContext.request.contextPath}/admin/speakerList.action">主讲人管理</a></li>
 				<li><a
 					href="${pageContext.request.contextPath}/admin/courseList.action">课程管理</a></li>
-				<li><a href="${pageContext.request.contextPath}/count/countMangement.action">统计分析</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/countMangement.action">统计分析</a></li>
 				<li><a target="pageBox" href="#">admin <span
 						class="glyphicon glyphicon-log-out" aria-hidden="true"> <!-- <a target="pageBox"  href="#">退出 -->
 					</span></a></li>

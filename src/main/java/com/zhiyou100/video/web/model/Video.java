@@ -25,13 +25,64 @@ public class Video {
 
     private Integer videoPlayTimes;
     
- 
-    
-    
     private String speakerName;
     
     private String courseName;
+    
+    private String videoLengthstr;
+    
+    
 
+   public String getVideoLengthstr() {
+	   
+	   int hh = videoLength/3600;
+	   int mm = videoLength%3600/60;
+	   int ss = videoLength%60;
+	   
+	   String h = ""+hh;
+	   String m = ""+mm;
+	   String s = ""+ss;
+	   if(hh<10){
+		   h="0"+hh;
+	   }
+	   if(mm<10){
+		   m="0"+mm;
+	   }
+	   if(ss<10){
+		   s="0"+ss;
+	   }
+	   
+	   this.videoLengthstr= h+":"+m+":"+s;
+	   
+	   
+	   
+		return videoLengthstr;
+	}
+
+	/* private String videoLengthStr;
+    
+	public String getVideoLengthStr() {
+		
+		
+		int hh = this.videoLength/3600;
+		int mm = this.videoLength%3600/60;
+		int ss = this.videoLength%60;
+		String h=""+hh;
+		String m=""+mm;
+		String s=""+ss;
+		if(hh<10){
+			h="0"+hh;
+		}
+		if(mm<10){
+			m="0"+mm;
+		}
+		if(ss<10){
+			s="0"+ss;
+		}
+		this.videoLengthStr = h+":"+m+":"+s;
+		return videoLengthStr;
+	}
+*/
 	public Integer getId() {
 		return id;
 	}

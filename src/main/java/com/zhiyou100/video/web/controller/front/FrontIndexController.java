@@ -47,6 +47,7 @@ public class FrontIndexController {
 			return str;
 		}else {
 			str="success";	
+			session.setAttribute("list", list);
 			User user = list.get(0);
 			
 			session.setAttribute("uid", user.getId());

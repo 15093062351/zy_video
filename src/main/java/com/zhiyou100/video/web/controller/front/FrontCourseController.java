@@ -20,12 +20,12 @@ public class FrontCourseController {
 	@Autowired
 	FrontCourseService fcs;
 	
+	
 	@RequestMapping("course/index.action")
 	public String index(Model md,Integer subjectId){
-		
-		
      List<Course> course =  fcs.fandallCourse();
 	 md.addAttribute("course",course);
+	 
 	 
 	 List<Subject> list = fcs.fandSubject();
 	  Subject subject = list.get(0);
@@ -36,22 +36,51 @@ public class FrontCourseController {
 	
 	
 	
+	
+	
 	@RequestMapping("video/index.action")
 	public String video(Integer subjectId,Model md,Integer videoId){
 		 List<Subject> list = fcs.fandSubject();
 		 Subject subject = list.get(0);
 		 md.addAttribute("subject", subject);
 		 md.addAttribute("subjectId", subjectId);
-		
 		 md.addAttribute("videoId", videoId);
+		 
+		 
+		 
+		 
 		return "/front/video/index";
 	}
+	
+	
+	
 	
 	@RequestMapping("video/videoData.action")
 	public String videoData(Model md,Integer videoId){
 		
 	    Video video = fcs.fandvideoBy(videoId);
 	    md.addAttribute("video", video);	    
+	  // Integer videolength = video.getVideoLength();
+	   
+	   /*int temp=0;
+       StringBuffer sb=new StringBuffer();
+       sb.append(videolength/3600+":");
+    
+       temp=videolength%3600/60;
+       sb.append((temp<10)?"0"+temp+":":""+temp+":");
+    
+       temp=videolength%3600%60;
+       sb.append((temp<10)?"0"+temp:""+temp);
+    
+          sb.toString();*/
+	    
+	    
+	    
+	    
+	   
+	   
+	   
+	   
 	    Integer speakerId = video.getSpeakerId();
 	    Speaker speaker = fcs.fandspeaker(speakerId);
 	    md.addAttribute("speaker", speaker);
@@ -61,15 +90,12 @@ public class FrontCourseController {
 	    md.addAttribute("course", course);	    
 	    List<Video> videolist = fcs.fandVideoList(courseId);
 	    md.addAttribute("videoList", videolist);
-	   // System.out.println(videolist);
-	    
-	    
-	   /* System.out.println(course);
-	    System.out.println(speaker);
-		System.out.println(video);*/
 	    
 		return "/front/video/content";
 	}
+	
+	
+	
 	
 	
     @RequestMapping("video/state.action")
@@ -85,7 +111,21 @@ public class FrontCourseController {
 	
 	
 	
-	
+    
+  /*  public static String change(int seconds)
+    {
+        int temp=0;
+        StringBuffer sb=new StringBuffer();
+        sb.append(seconds/3600+":");
+     
+        temp=seconds%3600/60;
+        sb.append((temp<10)?"0"+temp+":":""+temp+":");
+     
+        temp=seconds%3600%60;
+        sb.append((temp<10)?"0"+temp:""+temp);
+     
+        return sb.toString();
+    }*/
 	
 	
 	

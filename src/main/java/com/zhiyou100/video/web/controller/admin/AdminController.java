@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.zhiyou100.video.web.model.Admins;
 import com.zhiyou100.video.web.service.AdminService;
 @Controller
-@RequestMapping("/video")
+@RequestMapping("/admin")
 public class AdminController {
 	@Autowired
 	AdminService as;
@@ -29,10 +29,8 @@ public String Admin(String loginName, String loginPwd,HttpSession session){
 	String str = null ;
 	if(list.isEmpty()){
 		str="/admin";
-		
 	}else{
-		
-		/*session.setAttribute("list", list);*/
+		session.setAttribute("list", list);
 		str="redirect:/admin/adminPage.action";
 	}
 	return str;

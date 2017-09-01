@@ -53,9 +53,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<div class="classify-v-info">
 									<span class="count" title="观看次数">
 									<img src="front/static/img/count.png" alt="">${video.videoPlayTimes }</span>
+									
+									
 									<span class="duration" title="视频时长">
-										<img src="front/static/img/player.png" alt="">${video.videoLength }</span>
+										<img src="front/static/img/player.png" alt="">${video.videoLengthstr }</span>
 								</div>
+								
 							</li>
 						</c:forEach>
 					</ul>

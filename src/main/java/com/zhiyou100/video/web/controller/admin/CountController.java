@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zhiyou100.video.web.model.Video;
 import com.zhiyou100.video.web.model.View;
 import com.zhiyou100.video.web.service.VideoService;
-@RequestMapping("/count")
+@RequestMapping("admin")
 @Controller
 public class CountController {
 
@@ -27,7 +27,7 @@ public class CountController {
 		
 		
 		
-		return "/count/countMangement";
+		return "/admin/count/countMangement";
 	}
 	
 	
